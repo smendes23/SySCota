@@ -1,9 +1,10 @@
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+  
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
@@ -34,4 +35,142 @@ body {
     .carousel-caption {
         display: none;
     }
+}
+
+footer p {
+    padding-top: 18px;
+    text-align: center;
+    font-size: 12px;
+    color:#ffffff
+}
+
+.SeguradoSelecionado {
+    text-align: center;
+    font-size: 15px;
+    color: #2f2626;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #fff3cd;
+    min-height: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 3px;
+}
+
+.breadcrumb{
+    font-size:16px !important;
+    font-weight:bold;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 0px !important;
+}
+
+
+.body-content {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.navbar-brand > img {
+    display: table-row !important;
+    float: left;
+}
+
+.navbar-brand {
+    padding-top: 3px !important;
+    line-height: 44px !important;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+footer p {
+    padding-top: 18px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.navbar-inverse {
+    background-color: #fff !important;
+    border-color: #e5e2e2 !important;
+}
+
+.container {
+    /*width: 1170px;*/
+    width: auto !important;
+}
+
+
+.navbar-default {
+    border-bottom: 5px solid #089250;
+}
+
+.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+    margin-left: 0px !important;
+}
+
+.form-control {
+    height: 38px !important;
+    font-size: 16px !important;
+}
+
+.breadcrumb {
+    background-color: #d9edf7 !important;
+}
+
+.msg_200px{
+    width:500px;
+}
+
+.custom-select{
+    height:38px !important;
+}
+
+
+.modal-footer-customizado {
+    text-align: center;
+    /*display: flex;*/
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    /*border-top: 1px solid #dee2e6;*/
+    border-bottom-right-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+}
+
+.modal-header-customizado {
+    display: -ms-flexbox;
+    /*display: flex;*/
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    /*border-bottom: 1px solid #dee2e6;*/
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
 }

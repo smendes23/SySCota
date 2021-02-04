@@ -1,0 +1,40 @@
+﻿
+@model SysCota.ViewModel.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Novo Produto</h2>
+<form class="row g-3" asp-action="Create" >
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group col-md-8">
+        <label asp-for="Descricao" class="control-label"></label>
+        <input asp-for="Descricao" class="form-control" type="text"/>
+        <span asp-validation-for="Descricao" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-4">
+        <label asp-for="Preco" class="control-label"></label>
+        <input asp-for="Preco" class="form-control" type="text" />
+    </div>
+    <div class="form-group col-md-6">
+        <label class="control-label">Marca</label>
+        <select asp-for="MarcaNavigator"  id="editable-select" class="form-control" asp-items="@ViewBag.MarcaData ">
+        </select>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="control-label">Unidade</label>
+        <select asp-for="UnidadeNavigator" id="editable-select2" class="form-control" asp-items="@ViewBag.Unidade">
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}

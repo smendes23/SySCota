@@ -1,0 +1,81 @@
+﻿@model SysCota.ViewModel.EmpresaViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edita Empresa</h2>
+
+@if (TempData["Mensagem"] != null)
+{
+    <!--Modal exibi Mensagem cpf existente-->
+    <partial name="_ModalMensagemSucesso" />
+    <!--Moda Fim-->
+}
+<form class="row g-3" asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="EnderecoNavigation.Id" />
+    <div class="form-group col-md-3">
+        <label asp-for="CNPJ" class="form-label">CNPJ</label>
+        <span asp-validation-for="CNPJ" class="label label-danger"></span>
+        <input asp-for="CNPJ" class="form-control" type="text" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="RazaoSocial" class="form-label">Razão Social</label>
+        <span asp-validation-for="RazaoSocial" class="label label-danger"></span>
+        <input asp-for="RazaoSocial" class="form-control" type="text" />
+    </div>
+    <div class="col-3" style="margin-top: 51px;">
+        <div class="form-check">
+            <input asp-for="IsFornecedor" class="form-check-input " type="checkbox" />
+            <label asp-for="IsFornecedor" class="form-check-label" for="gridCheck">
+                Fornecedor
+            </label>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <label asp-for="EnderecoNavigation.Cep" class="form-label">CEP</label>
+        <span asp-validation-for="EnderecoNavigation.Cep" class="label label-danger"></span>
+        <input asp-for="EnderecoNavigation.Cep" class="form-control" type="text" />
+    </div>
+    <div class="col-10">
+        <label asp-for="EnderecoNavigation.Logradouro" class="form-label">Endereço</label>
+        <input asp-for="EnderecoNavigation.Logradouro" class="form-control" type="text" />
+    </div>
+    <div class="col-12">
+        <label asp-for="EnderecoNavigation.Complemento" class="form-label">Complemento</label>
+        <input asp-for="EnderecoNavigation.Complemento" class="form-control" type="text" />
+    </div>
+    <div class="col-4">
+        <label asp-for="EnderecoNavigation.Bairro" class="form-label">Bairro</label>
+        <input asp-for="EnderecoNavigation.Bairro" class="form-control" type="text" />
+    </div>
+    <div class="col-4">
+        <label asp-for="EnderecoNavigation.Cidade" class="form-label">Cidade</label>
+        <input asp-for="EnderecoNavigation.Cidade" class="form-control" type="text" />
+    </div>
+    <div class="col-4">
+        <label asp-for="EnderecoNavigation.Uf" class="form-label">Estado</label>
+        <input asp-for="EnderecoNavigation.Uf" class="form-control" type="text" />
+    </div>
+    <div class="col-md-12">
+        <label asp-for="EnderecoNavigation.Observacao" class="form-label">Observação</label>
+        <textarea asp-for="EnderecoNavigation.Observacao" class="form-control"></textarea>
+    </div>
+
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+
+    <div class="col-12">
+        <br />
+        <br />
+        <br />
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

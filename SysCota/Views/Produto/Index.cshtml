@@ -1,0 +1,55 @@
+﻿@model IEnumerable<SysCota.Models.Produto>
+
+@using SysCota.Extensions
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create","Produto")">Novo</a>
+</p>
+
+<table class="table table-responsive table-condensed table-striped table-hover">
+    <thead class="table-light" style="background-color: #e3f2fd;" id="dataEmpresa">
+        <tr>
+            <th scope="col"> @Html.DisplayNameFor(model => model.Id) </th>
+            <th scope="col"> @Html.DisplayNameFor(model => model.Descricao) </th>
+            <th scope="col"> @Html.DisplayNameFor(model => model.Preco)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Unidade.Descricao)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Marca.Descricao)</th>
+            <th scope="col"> Ação</th>
+            <th scope="col"> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+        <tr>
+            <th> @Html.DisplayFor(modelItem => item.Id)</th>
+            <th>@Html.DisplayFor(modelItem => item.Descricao)</th>
+            <th>@Html.DisplayFor(modelItem => item.Preco)</th>
+            <th>@Html.DisplayFor(modelItem => item.Unidade.Descricao)</th>
+            <th>@Html.DisplayFor(modelItem => item.Marca.Descricao)</th>
+            <th class="d-grid gap-2 d-md-block">
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+            </th>
+            <th>
+                <form asp-action="Delete" asp-route-id="@item.Id" class="d-grid gap-2 d-md-block">
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+
+                </form>
+
+            </th>
+        </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}

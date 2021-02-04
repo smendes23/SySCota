@@ -1,21 +1,28 @@
 ﻿{
   "iisSettings": {
-    "windowsAuthentication": false, 
-    "anonymousAuthentication": true, 
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:49506",
-      "sslPort": 44373
+      "applicationUrl": "http://localhost:63485",
+      "sslPort": 44362
     }
   },
   "profiles": {
-    "IIS Express": {
+    "IIS - DEV": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SysCota": {
+    "IIS - PROD": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "IperonPrevCore": {
       "commandName": "Project",
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
@@ -25,3 +32,7 @@
     }
   }
 }
+
+//Configurações para ambiente de produção
+//"Prod SelfHosting"
+//"ASPNETCORE_ENVIRONMENT": "Production"

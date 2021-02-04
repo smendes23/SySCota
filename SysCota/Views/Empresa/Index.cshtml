@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SysCota.Models.Empresa>
+
+@using SysCota.Extensions
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<p>
+    <a class="btn btn-primary" href="@Url.Action("Create","Empresa")">Novo</a>
+</p>
+
+<table class="table table-responsive table-condensed table-striped table-hover">
+    <thead class="table-light" style="background-color: #e3f2fd;" id="dataEmpresa">
+        <tr>
+            <th scope="col"> @Html.DisplayNameFor(model => model.Id) </th>
+            <th scope="col"> @Html.DisplayNameFor(model => model.CNPJ) </th>
+            <th scope="col"> @Html.DisplayNameFor(model => model.RazaoSocial)</th>
+            <th scope="col">Tipo</th>
+            <th scope="col"> Ação</th>
+            <th scope="col"> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <th > @Html.DisplayFor(modelItem => item.Id)</th>
+                <th>@Html.DisplayFor(modelItem => item.CNPJ)</th>
+                <th>@Html.DisplayFor(modelItem => item.RazaoSocial)</th>
+                @if (item.IsFornecedor)
+                {
+                    <th>Fornecedor</th>
+
+                }
+                else
+                {
+                    <th>Cliente</th>
+                }
+                <th class="d-grid gap-2 d-md-block">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                </th>
+                <th>
+                    <form asp-action="Delete" asp-route-id="@item.Id" class="d-grid gap-2 d-md-block">
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+
+                    </form>
+
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}
